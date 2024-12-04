@@ -8,6 +8,7 @@ interface CartContextProps {
   clearCart: () => void;
   incrementQuantity: (productId: number) => void;
   decrementQuantity: (productId: number) => void;
+  totalPrice: number; 
 }
 
 export const CartContext = createContext<CartContextProps | undefined>(undefined);
@@ -55,6 +56,11 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     );
   };
 
+  const totalPrice = cart.reduce(
+    (total, item) => total + item.product.price * item.quantity,
+    0
+  );
+
   return (
     <CartContext.Provider
       value={{
@@ -64,6 +70,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         clearCart,
         incrementQuantity,
         decrementQuantity,
+        totalPrice, 
       }}
     >
       {children}

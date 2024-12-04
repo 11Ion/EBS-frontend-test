@@ -62,7 +62,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
             </button>
 
             <div className="flex gap-6 items-center max-md:flex-col">
-              {/* Imaginea produsului */}
+              {/* Image product */}
               <div className="flex-shrink-0">
                 <img
                   src={product.image}
@@ -71,7 +71,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
                 />
               </div>
 
-              {/* Detalii produs */}
+              {/* Details product */}
               <div className="flex flex-col flex-1">
                 <h2 className="text-2xl max-md:text-xl max-sm:text-lg font-bold mb-4">{product.title}</h2>
                 <p className="text-lg max-md:text-base text-gray-500 mb-4">
